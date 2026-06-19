@@ -1,0 +1,271 @@
+/* ============================================================
+   Reset & Base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --border: #e4e2dd;
+  --text: #1c1c1a;
+  --muted: #6b6860;
+  --accent: #2c5f4e;       /* vert sauge profond */
+  --accent-light: #edf3f0;
+  --font-serif: 'Lora', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --radius: 14px;
+  --shadow: 0 2px 16px rgba(0, 0, 0, 0.07), 0 0 0 1px var(--border);
+  --transition: 0.18s ease;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg);
+  color: var(--text);
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+/* ============================================================
+   Page layout
+   ============================================================ */
+.page {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  animation: fadeIn 0.5s ease both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   Card
+   ============================================================ */
+.card {
+  width: 100%;
+  background: var(--surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 36px 32px;
+}
+
+/* ============================================================
+   Header
+   ============================================================ */
+.card__header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.initials {
+  flex-shrink: 0;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  border: 1.5px solid #c8ddd6;
+  color: var(--accent);
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.5px;
+  user-select: none;
+}
+
+.name {
+  font-family: var(--font-serif);
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.2;
+  letter-spacing: -0.2px;
+}
+
+.title {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 3px;
+  font-weight: 400;
+  letter-spacing: 0.1px;
+}
+
+/* ============================================================
+   Divider
+   ============================================================ */
+.divider {
+  height: 1px;
+  background-color: var(--border);
+  margin: 20px 0;
+}
+
+/* ============================================================
+   Pill / Badge
+   ============================================================ */
+.pill-row {
+  margin-bottom: 18px;
+}
+
+.pill {
+  display: inline-block;
+  background-color: var(--accent-light);
+  color: var(--accent);
+  border: 1px solid #c8ddd6;
+  border-radius: 999px;
+  padding: 5px 13px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+/* ============================================================
+   Bio
+   ============================================================ */
+.bio {
+  font-size: 0.9rem;
+  line-height: 1.75;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+
+.bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.bio em {
+  font-style: italic;
+  color: var(--text);
+}
+
+/* ============================================================
+   Facts list
+   ============================================================ */
+.facts {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.facts li {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  font-size: 0.85rem;
+}
+
+.fact-label {
+  flex-shrink: 0;
+  width: 80px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+
+.fact-value {
+  color: var(--text);
+  font-weight: 400;
+}
+
+/* ============================================================
+   Actions
+   ============================================================ */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 11px 20px;
+  border-radius: 8px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition);
+  flex: 1;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  background-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 1px 6px rgba(44, 95, 78, 0.25);
+}
+
+.btn-primary:hover {
+  background-color: #234d3e;
+  box-shadow: 0 3px 12px rgba(44, 95, 78, 0.3);
+}
+
+.btn-primary:active {
+  transform: none;
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+
+.btn-outline:hover {
+  background-color: var(--bg);
+  border-color: #ccc;
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.footer {
+  font-size: 0.72rem;
+  color: #aaa9a4;
+  text-align: center;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 400px) {
+  .card {
+    padding: 28px 20px;
+  }
+
+  .name { font-size: 1.25rem; }
+
+  .actions {
+    flex-direction: column;
+  }
+}
